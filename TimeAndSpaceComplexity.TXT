@@ -1,0 +1,137 @@
+Student Class — Time & Space Complexity
+
+The Student class does not use loops or recursion. All operations are constant time.
+
+Constructor
+public Student(int studentID, String name, double gpa)
+
+➤ Time Complexity: O(1)
+
+Performs 2 simple comparisons and 3 assignments.
+
+➤ Space Complexity: O(1)
+
+Only stores three primitive fields + a String reference.
+
+Getter Methods
+
+getStudentID(), getName(), getGPA()
+
+➤ Time Complexity: O(1)
+➤ Space Complexity: O(1)
+Setter Methods
+
+setName(), setGPA()
+
+➤ Time Complexity: O(1)
+➤ Space Complexity: O(1)
+toString()
+➤ Time Complexity: O(1)
+
+String concatenation is fixed-size.
+
+➤ Space Complexity: O(1)
+
+Creates a small constant-size string.
+
+
+
+StudentRecordManager — Time & Space Complexity
+
+This class uses
+TreeMap<Integer, Student> studentRecords;
+
+TreeMap is implemented as a Red-Black Tree, so:
+
+All key operations (put, get, remove, containsKey) run in O(log n).
+Iteration over all entries is O(n).
+
+Let n = number of students in the TreeMap.
+
+Method-by-Method Complexity Analysis
+
+
+Constructor
+public StudentRecordManager()
+
+➤ Time: O(1)
+
+Creates an empty TreeMap.
+
+➤ Space: O(1)
+insertStudent(Student student)
+containsKey() → O(log n)
+put() → O(log n)
+
+➤ Time: O(log n)
+➤ Space: O(1)
+updateStudent(Student student)
+removeStudent(student) → O(log n)
+insertStudent(student) → O(log n)
+
+➤ Time: O(log n)
+
+Two log n operations → still O(log n).
+
+➤ Space: O(1)
+removeStudent(Student student)
+containsKey() → O(log n)
+remove() → O(log n)
+
+➤ Time: O(log n)
+➤ Space: O(1)
+updateInsertStudent(Student student)
+Behavior:
+
+If ID exists → updateStudent() → O(log n)
+
+If not → insertStudent() → O(log n)
+
+➤ Time: O(log n)
+➤ Space: O(1)
+retrieveStudentRecord(int studentID)
+get() → O(log n)
+
+➤ Time: O(log n)
+➤ Space: O(1)
+getNumberOfRecords()
+studentRecords.size()  → O(1)
+
+➤ Time: O(1)
+➤ Space: O(1)
+displayStudentRecords() — No filter
+for each entry in TreeMap → O(n)
+
+➤ Time: O(n)
+➤ Space: O(1)
+
+(Only printing; no additional memory)
+
+displayStudentRecords(double gpaFilter)
+loop over entire map → O(n)
+
+➤ Time: O(n)
+
+Even though you're filtering, you still scan every student.
+
+➤ Space: O(1)
+toString()
+for each entry → O(n)
+string concatenations → O(n)
+
+➤ Time: O(n)
+➤ Space: O(n)
+
+Because it builds a string proportional to the number of students.
+
+Total Space Complexity of StudentRecordManager
+
+TreeMap stores n student entries.
+
+Each entry stores:
+
+an Integer key
+
+a Student object
+
+➤ Total Space: O(n)
