@@ -135,3 +135,19 @@ an Integer key
 a Student object
 
 ➤ Total Space: O(n)
+
+
+| Method                           | Time Complexity | Space Complexity |
+| -------------------------------- | --------------- | ---------------- |
+| Constructor                      | O(1)            | O(1)             |
+| insertStudent                    | O(log n)        | O(1)             |
+| updateStudent                    | O(log n)        | O(1)             |
+| removeStudent                    | O(log n)        | O(1)             |
+| updateInsertStudent              | O(log n)        | O(1)             |
+| retrieveStudentRecord            | O(log n)        | O(1)             |
+| getNumberOfRecords               | O(1)            | O(1)             |
+| displayStudentRecords()          | O(n)            | O(1)             |
+| displayStudentRecords(gpaFilter) | O(n)            | O(1)             |
+| toString()                       | O(n)            | O(n)             |
+| **Overall Manager Space**        | —               | **O(n)**         |
+
